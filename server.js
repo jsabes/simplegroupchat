@@ -35,7 +35,7 @@ io.on("connection", async (socket) => {
   console.log("🔌 A user connected");
 
   // Send recent message history (last 50 messages)
-  const history = await Message.find().sort({ timestamp: 1 }).limit(50);
+  const history = await Message.find().sort({ timestamp: 1 });
   socket.emit("load history", history);
 
   // Handle new message
